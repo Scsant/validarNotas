@@ -17,10 +17,22 @@ if uploaded_file is not None:
 
     texto = extrair_texto_unico(caminho_temporario)
 
+    # Lista de transportadoras pré-definidas
+    transportadoras = [
+        "CARGO POLO COMERCIOLOGISTICA E",
+        "EUCLIDES RENATO GARBUIO TRANSPORTES",
+        "JSL SA",
+        "EXPRESSO NEPOMUCENO SA",
+        "VDA LOGISTICA LTDA",
+        "EXPRESSO OLSEN TRANSP ROD CARGAS LT",
+        "PLACIDOS TRANSP RODOVIARIO LTDA",
+        "SERRANALOG TRANSPORTES LTDA"
+    ]
+
     # Entradas do usuário
     with st.form("form_validacao"):
         nome_fazenda = st.text_input("🧾 Nome esperado da Fazenda")
-        nome_transportadora = st.text_input("🚛 Nome esperado da Transportadora")
+        nome_transportadora = st.selectbox("🚛 Transportadora", transportadoras)
         data_emissao = st.text_input("📅 Data esperada de Emissão (ex: 11.04.2025)")
         submitted = st.form_submit_button("✅ Validar")
 
